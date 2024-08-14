@@ -1,0 +1,78 @@
+import { Steps } from 'nextra/components'
+
+# Agent Lifecycle
+
+## Initialization 
+
+FormAI agents are instantiated in response to requests from user smart contracts. This process typically involves the following steps:
+
+<Steps>
+
+### Request Receipt
+
+- A user smart contract initiates a request, via a Remote Procedure Call (RPC), to create an agent. 
+- This request includes a schema containing key-value pairs that outline the context, conditions, and specific requirements of the transaction.
+
+### Agent Creation
+
+- Upon receiving the request, the Agent Coordinator contract assigns a suitable node for the task
+- The created agent is provided with the input schema, ensuring that the agent has all the necessary information to perform its role effectively.
+
+</Steps>
+
+## Operation
+
+Once initialized, the agent enters the operational phase, where it actively performs its designated tasks. The key activities during this phase include:
+
+<Steps>
+
+### Contextual Analysis
+
+- The agent uses the provided schema to conduct a thorough analysis of the transaction details. 
+- This involves validating the information, checking conditions, and interpreting the terms outlined in the smart contract.
+
+### Intelligent Operation
+
+- Leveraging advanced algorithms and AI models, the agent processes the transaction details. 
+- It may run simulations, perform risk assessments, or cross-reference external data sources to gather additional insights. 
+- At this stage, if the smart contract only requests AI oracle data, it would be transmitted, otherwise the agent moves forward in the workflow. 
+
+### Decision-Making
+
+- Based on its analysis, the agent makes a decision on whether the transaction should proceed. 
+- This decision is informed by the predefined conditions and the agent's computational logic. 
+
+### Explanation Generation
+
+- In addition to the binary decision, the agent generates a natural language explanation that provides context and rationale for its decision.
+- This explanation is designed to be clear and comprehensive, ensuring that all parties involved understand the basis for the agent's determination.
+
+</Steps>
+
+## Termination
+
+The final stage of the agent lifecycle involves the termination of the agent's activities. This stage includes the following steps:
+
+<Steps>
+
+### Completion of Task
+
+- The agent concludes its operations once it has outputted its decision and explanation. 
+- The decision and accompanying explanation are then communicated back to the smart contract through secure and encrypted channels to maintain the confidentiality and integrity of the information.
+
+### Deactivation
+
+- After completing its tasks, the agent deactivates.
+- This process involves cleaning up any temporary data structures, closing connections to external resources, and ensuring that no residual processes remain active.
+
+### Logging and Archival
+
+- The agent's actions, decisions, and explanations are logged and archived for future reference and auditing purposes. 
+- This ensures transparency and provides a record that can be reviewed if necessary.
+
+### Resource Reallocation
+
+- Any computational resources and nodes that were allocated to the agent are released and made available for other tasks. 
+- This dynamic resource management ensures the efficient operation of the overall system.
+
+</Steps>

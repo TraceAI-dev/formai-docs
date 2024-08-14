@@ -1,0 +1,31 @@
+# Endpoint Interface
+
+The Endpoint Interface serves as the communication bridge between FormAI agents and external entities, including user applications, smart contracts, and other nodes. This interface ensures seamless, secure, and efficient interactions, enabling developers to harness the full potential of FormAI's decentralized AI-driven architecture.
+
+## Supported Communication Protocols
+
+**HTTP/HTTPS:** The primary protocol for web-based interactions, ensuring secure communication through SSL/TTLS encryption. This protocol is ideal for standard API requests and responses, providing a familiar and widely-supported method for data exchange.
+
+**WebSockets:** Enables real-time, bidirectional communication, allowing agents to push updates and receive commands instantly. This is particularly useful for applications requiring immediate feedback or continuous data streams, such as live monitoring systems or interactive applications.
+
+**gRPC:** Facilitates high-performance communication between services, particularly useful for microservices architecture and inter-node communication. gRPC's efficient serialization and support for multiple programming languages make it an excellent choice for complex, distributed systems requiring low-latency and high-throughput communication.
+
+## API Endpoints
+
+FormAI provides a comprehensive set of API endpoints, allowing developers to interact with the agents programmatically. Key endpoints include:
+
+**Agent Initialization:** Endpoints to instantiate and configure agents based on user-defined schemas. These endpoints handle the creation of agents, setting up initial parameters, and preparing them for task execution.
+
+**Task Execution:** Endpoints for submitting tasks, receiving status updates, and fetching results from agents. These endpoints manage the lifecycle of a task, from submission and processing to completion and result retrieval.
+
+**Data Retrieval:** Endpoints to access logs, explanations, and transaction details processed by the agents. Developers can query these endpoints to obtain detailed records of agent activities, facilitating transparency and auditing.
+
+**Management and Monitoring:** Endpoints for managing agent lifecycles, including deactivation and resource reallocation. These endpoints provide tools for administrators to oversee agent operations, ensuring optimal performance and resource utilization.
+
+## Security and Authentication Measures
+
+**API Keys and Tokens:** Each request to the interface requires authentication via API keys or OAuth tokens, ensuring that only authorized entities can interact with the agents. These credentials are issued to users and applications, granting access based on predefined permissions.
+
+**Encryption:** All data transmitted through the interface is encrypted using industry-standard protocols to protect against eavesdropping and tampering. This includes the use of SSL/TLS for HTTP/HTTPS communications and encryption for data exchanged over WebSockets and gRPC.
+
+**Access Control:** Fine-grained access control mechanisms regulate what actions different users or systems can perform, based on their roles and permissions. This ensures that sensitive operations are restricted to authorized personnel, and different levels of access can be assigned according to the principle of least privilege.

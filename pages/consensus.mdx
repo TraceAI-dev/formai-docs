@@ -1,0 +1,32 @@
+# Consensus
+
+FormAI utilizes a unique consensus mechanism to coordinate validators and AI agents, achieving two key benefits: 
+
+1. **Ensuring the integrity, reliability, and security of data provided to smart contracts**
+2. **Enhancing the performance and output of the models**
+
+This mechanism plays a critical role in validating data accuracy and robustness, essential for maintaining trust across transactions and interactions within the network. Additionally, the mechanism improves model effectiveness by combining insights from multiple agents, which is crucial for processing complex tasks with higher precision and reliability.
+
+## Integrity, Reliability, and Security
+
+FormAI's consensus mechanism ensures that the data provided by AI agents are consistent and trustworthy. By requiring multiple independent validations before accepting any data, the network guards against errors and manipulation, thus maintaining the integrity of the data. This rigorous validation process enhances the reliability of the data, as only verified and corroborated data reaches the smart contracts. Additionally, the security of the network is strengthened through the distributed nature of the consensus process, making it highly resistant to tampering or control by any single party. This multi-faceted approach ensures that data breaches and cyber threats are mitigated, safeguarding the entire ecosystem and its stakeholders.
+
+## Performance Enhancement
+
+FormAI's consensus mechanism among AI agents not only ensures integrity and security, but also significantly enhances the accuracy and robustness of the outputs. The performance of large language models scales with the number of agents instantiated, indicating a direct correlation between the number of participating agents and the enhancement in performance.
+
+This method is particularly effective in complex scenarios where a single agent is unable to deliver high accuracy due to limitations in processing capabilities or inherent biases. Accuracy gains of up to 24% can be observed on various tasks as the ensemble size of agents increases. By aggregating multiple assessments, FormAI not only increases the precision of outputs, but also enhances its resilience against individual errors or biases, thus optimizing the overall performance for complex data requests or transactions.
+
+
+<div className="theme-toggle" style={{ marginTop: '2em', marginBottom: '2em' }}>
+  ![Light mode image](.github/graph.svg)
+  ![Dark mode image](.github/darkgraph.svg)
+</div>
+
+Consensus within the FormAI network is facilitated through the aggregator contract, where outputs from multiple agents are compiled and evaluated by an "evaluator" agent. This agent ranks the outputs based on accuracy, leveraging the insight that models are often better at evaluating their own work than they are at generating it. Combined with a majority voting system, this process ensures that the final selected output reflects the highest "consensus-like" vote among the agents. Subsequently, a new, final output is crafted, incorporating the collective agreement of the agents. This refined output is then transmitted back to the requesting user's smart contract.
+
+<div className="theme-toggle">
+  ![Light mode image](.github/whiteconsensus.svg)
+  ![Dark mode image](.github/blackconsensus.svg)
+</div>
+

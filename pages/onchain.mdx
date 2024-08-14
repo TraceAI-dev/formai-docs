@@ -1,0 +1,50 @@
+import { Steps } from 'nextra/components'
+
+# On-Chain Architecture
+
+FormAI’s on-chain architecture integrates its off-chain decentralized compute nodes with user-based smart contracts. Users can leverage FormAI agents to facilitate transactions on their behalf, while communicating with agents in a decentralized and securely encrypted manner. AI agents have the authority to control the release of funds, data, products, and services. Contracts that interact with the FormAI network are referred to as Client Contracts. FormAI's on-chain interface for requesting contracts is facilitated by a set of smart contracts collectively known as the Form ChainKit, which includes the Node Credit contract, the Agent Coordinator contract, and the Evaluator contract. The Node Credit contract is responsible for tracking the history and reliability of nodes. The Agent Coordinator contract receives the agreed-upon transaction parameters from the Client Contract, identifies the nodes best suited to handle the transaction, and provides the endpoints from the assigned nodes to enable communication between the parties to a transaction and the agent(s). The Evaluator contract gathers outputs from multiple Form nodes, sends these outputs and their logic to a a trusted node (selected by the Node Credit contract) and evaluates the responses. The best response is then sent back to the contract, guiding the final outcome or determining the appropriate next steps.
+
+## On-Chain Workflow
+
+1. Drafting and signing the agreement
+2. Selecting nodes
+3. Facilitating agent communication with clients
+4. Executing inference through multiple agents
+5. Aggregating results
+
+<Steps>
+### Drafting the Agreement
+
+This step involves the parties writing out the details of their transaction in natural language and/or providing resources outlining how the transaction should occur. These details are then embedded into the smart contract and signed by all involved parties. The agreement includes all the necessary terms, conditions, and parameters that will guide the underlying transaction, ensuring that both parties are aligned on the expectations and procedures before proceeding to the next steps in the workflow. Users may also use pre-existing coded smart contracts. 
+
+### Selecting Nodes
+
+During this step, the Client Contract connects with the Agent Coordinator contract. The Agent Coordinator then assigns Form nodes to facilitate communication between the involved parties, ensuring the transaction proceeds smoothly and adapts to any changes. Additional nodes are selected to handle autonomous agent tasks and execute the required logic at a later stage. If the transaction is set to occur at a future date, only the communication nodes are selected initially, with the other nodes being assigned when needed.
+
+### Facilitating Communication with Clients
+
+In this step, the assigned Form nodes facilitate communication between the involved parties and the FormAI agents. The Agent Coordinator provides the necessary endpoints, which are emitted by the Client Contracts to the clients involved. These endpoints enable secure and efficient communication channels, allowing the parties to interact with the AI agents. The agents manage transaction details, monitor progress, and ensure that the agreed-upon terms and conditions are met. This secure and encrypted communication maintains confidentiality and protection of all exchanged information.
+
+Coordination between clients and nodes is a dynamic process. Nodes can securely exchange tasks when not in active use, ensuring flexibility and adaptability throughout the transaction lifecycle. Even if the agreement is not yet complete, this dynamic coordination ensures that the system remains responsive to changes and can efficiently manage the transaction process.
+
+### Executing Inference through Multiple Agents
+
+This step involves executing complex, long-term tasks such as running code, accessing the internet, and gathering data from various sources. Multiple Form nodes are coordinated to operate concurrently, enhancing both the security and accuracy of the outputs. The AI agents utilize information collected from client conversations, the original agreement, and any additional resources provided. By leveraging the combined processing power of multiple nodes, the system ensures that inference results are thorough and reliable.
+
+In this phase, the agents analyze and process the transaction details, cross-referencing them with external data sources as needed. This multi-node approach allows for redundancy and validation, reducing the risk of errors and increasing confidence in the results. The coordinated effort of several nodes ensures that the outputs are not only accurate but also verified through a consensus mechanism, further bolstering the trustworthiness of the transaction.
+
+This step is critical for validating the transaction details, making informed decisions, and ensuring that all terms and conditions are met with precision. The dynamic coordination of nodes allows the system to adapt to any changes or new information, maintaining the integrity and smooth progression of the transaction.
+
+### Aggregating Results
+
+After the inference phase, the outputs from multiple Form nodes are collected and sent to the Evaluator contract. This contract forwards the aggregated outputs to a more trusted and vetted node, selected by the Node Credit contract based on its reliability and performance history. This vetted node evaluates all the outputs to determine the most accurate and reliable response.
+
+The chosen response is then formatted and sent back to the Evaluator contract, which passes this information to the Client Contract. With this evaluated data, the Client Contract can make informed decisions—unlocking funds, requesting additional data, asking for revisions, or taking protective measures against potential fraud.
+
+This rigorous evaluation process ensures that the final outcome is verified through a consensus mechanism, enhancing security and trust. The dynamic coordination of nodes and thorough validation of results maintain the integrity of the transaction, ensuring all terms and conditions are met with precision. This systematic approach allows for efficient management of the transaction lifecycle, adapting to changes and ensuring smooth progression from start to finish.
+</Steps>
+
+<div className="theme-toggle">
+  ![Light mode image](.github/whiteonchain.svg)
+  ![Dark mode image](.github/blackonchain.svg)
+</div>

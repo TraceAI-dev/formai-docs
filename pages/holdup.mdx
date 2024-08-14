@@ -1,0 +1,22 @@
+# Solving the 'Hold-up Problem'
+The "Hold-up problem" is a classic problem in economics and contract theory. Introduced in 1986 by Wharton Professor Sanford J. Grossman and Nobel prize winning economist Oliver D. Hart, the problem describes situations where one party to a transaction has made irreversible investments or commitments that are specific to the transaction, which leaves them vulnerable to opportunistic behavior from the other party. For example, a buyer and supplier have an agreement that requires the supplier to invest heavily into specialized machinery to produce a specific component for a buyer. Once the supplier has made the investment, the buyer may attempt to re-negotiate the contract since the supplier won't be able to easily sell the machinery to other buyers and is therefore in a weaker bargaining position. This situation may also lead to negative efficiency if due to fear of exploitation, the buyer refuses to ex-ante invest and thus forgoes the potential benefits offered by the specialized good or service.
+
+<div className="theme-toggle">
+  ![Light mode image](.github/lightholdup.svg)
+  ![Dark mode image](.github/darkholdup.svg)
+</div>
+
+The hold-up problem is particularly salient in the context of blockchain transactions. Transactions on the blockchain are irreversible, immutable, and oftentimes anonymous. The lack of humans and governing bodies to facilitate and negotiate transactions make it impossible to implement the strategies that are typically employed in real-world settings to address the hold-up problem. Without the supervision of a court or arbitration system, parties to a transaction lack the safeguards that prevent moral hazard and opportunism. While smart contracts have been postulated as a solution to the hold-up problem, Meier and Sannajust in their paper "The Smart Contract Revolution: A Solution for the holdup problem?" highlighted two issues, 1. code does not reflect all the decision in the agreement between parties and 2. "the code is the contract" can lead to unintended risks due to the fixed nature of code. To mitigate these issues, they suggested "overcoming this limitation by using artificial intelligence. In a legal contract, there is always an oracle with responsibility for determining whether the terms of the contract have been fulfilled. This is a sort of trusted third party. Artificial intelligence could build an intelligent and independent oracle that would not be controlled by any of the parties." The solution is FormAI. 
+
+<div align="center" className="theme-toggle">
+  ![Light mode image](.github/whitesolution.svg)
+  ![Dark mode image](.github/blacksolution.svg)
+</div>
+
+For example, in the blockchain context, a software buyer may commission services for a project and the developer allocates time to create a specialized contract. Before exchanging funds, the buyer may want the developer to reveal the contents of the smart contract to ensure the quality, but the developer may refrain as to not reveal the code to the buyer. There is thus a hold-up problem in the sense that the developer has made irreversible investments in creating the smart contract and the asymmetry in effort has led to an imbalance in incentives between the parties. 
+
+In this scenario, a FormAI agent would be able to incrementally unlock funds based on specific milestones, achievements or completions. FormAI enables parties to set-up transactions where the intent underlying the agreement is verified before unlocking funds. AI agents can securely and autonomously verify that the developer wrote the code to the provided specifications, and unlock funds accordingly based on the level of progress. In addition, the agreement could require other verifications via an AI Agent before proceeding with the transaction, such as verifying that a human created the good or service. 
+
+**References:**
+1. Klein, B., Crawford, R. G., & Alchian, A. A. (1978). Vertical integration, appropriable rents, and the competitive contracting process. Journal of Law and Economics, 21(2), 297-326.
+2. Meier, O., & Sannajust, A. (2021). The smart contract revolution: a solution for the holdup problem?. Small Business Economics, 57, 1073-1088.

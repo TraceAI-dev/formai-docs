@@ -1,0 +1,53 @@
+# Decentralized Inference
+
+Decentralized inference refers to the process of running machine learning models across a distributed network of nodes rather than within a centralized data center. This approach leverages computational resources spread across various locations, enabling efficient processing of data closer to its source. In decentralized systems, inference tasks are divided and executed on multiple nodes, which significantly enhances scalability. FormAI's decentralized inference intends to leverage advanced model parallelism, where different layers of a model are distributed across multiple computing nodes.
+
+During inference, the input data 𝑋 is processed sequentially, with each node handling its respective computations and passing intermediate results to the next node. Mathematically, this can be expressed as: 
+
+<div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '1em' }}>
+
+$$Y = f_n(f_{n-1}(\ldots f_2(f_1(X))))$$
+
+</div>
+
+where $f_i$ represents the computation performed by the $i$-th node and $Y$ is the final output.
+
+This method is particularly advantageous for very large models that exceed the memory capacity of a single device. By partitioning the model and distributing the workload, model parallelism ensures that even resource-intensive inference tasks can be performed efficiently in a decentralized environment. However, several challenges remain that need to be addressed in a decentralized setting.
+
+<div className="theme-toggle">
+  ![Light mode image](.github/whiteparallel.svg)
+  ![Dark mode image](.github/blackparallel.svg)
+</div>
+
+## Communication Overheads
+
+The first challenge is communication overheads, primarily due to issues with bandwidth and latency. In a homogeneous environment like a data center, these problems are mitigated by interconnected high-bandwidth cables that minimize latency for rapid communication between GPUs. However, in a heterogeneous environment such as a Decentralized Physical Infrastructure Network (DePIN), these advantages are absent.
+
+The communication time $T_c$ can be modelled as:
+
+<div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '1em', marginBottom: '1em' }}>
+
+$$T_c = \frac{D}{B} + L$$
+
+</div>
+
+Where $D$ is the data size, $B$ is the bandwidth, and $L$ is the latency. There is a substantial difference in network bandwidth, which can be up to 100 times slower than those found in data centers. This disparity raises the question: How can we run models effectively under such constraints? Even in regions with high-speed gigabit internet, the performance still falls short compared to data center environments. A decentralized distribution of compute requires frequent communication between nodes to pass intermediate results during the forward passes of inference. Each communication step introduces latency, which slows down the overall computation process.
+
+Since high bandwidth is required to transfer large amounts of data between units quickly, limited bandwidth can become a bottleneck, reducing the efficiency gains from parallelism. To mitigate these issues, FormAI is experimenting with techniques such as overlapping computation and communication, as well as reducing the frequency/volume of data transfers to assist in mitigating the overhead.
+
+
+## Load Balancing
+
+Another challenge is properly partitioning the model to ensure each computing unit has an equal amount of work. Imbalanced workloads can lead to some nodes being idle while others are still processing, reducing overall efficiency. If one node has significantly more work than others, it becomes a bottleneck, slowing down the entire process. On the other hand, the underutilization of idle nodes wastes computational resources.
+
+The efficiency $E$ of load balancing can be expressed as:
+
+<div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '1em', marginBottom: '1em' }}>
+
+$$E = \frac{\sum_{i=1}^n T_i}{n \cdot \max(T_i)}$$
+
+</div>
+
+where $T_i$ is the processing time of the $i$-th node and $n$ is the number of nodes. A perfectly balanced load would have $E=1$.
+
+To address this load balancing problem, FormAI's network intends to implement careful analysis and partitioning of the model to distribute the computational load across nodes. This involves dividing layers or splitting operations within a layer. Implementing dynamic load balancing techniques, where the workload is adjusted during runtime based on the processing speed of each node, also assists in ensuring efficient resource utilization and maintaining optimal performance.

@@ -1,0 +1,11 @@
+.theme-toggle img {
+  display: none;
+}
+
+.light .theme-toggle img:first-child {
+  display: block;
+}
+
+.dark .theme-toggle img:last-child {
+  display: block;
+}

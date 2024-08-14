@@ -1,0 +1,31 @@
+# zk-Oracle Security
+
+A Zero-Knowledge Proof (ZKP) is a cryptographic method by which one party can prove to another party that a statement is true without revealing any information beyond the fact that the statement is true. First introduced in 1985, ZKPs have since been used to ensure transaction privacy on the blockchain, provide privacy preserving identity verification, and facilitate anonymous voting, inter alia. Zk-Oracle is an advance oracle system used by FormAI which incorporates ZKPs into traditional oracle systems to provide secure computation, storage and data processing on-chain/off-chain. Users and developers can optionally incorporate zk-oracle's into their Form Node's workflow to enhance security and privacy. 
+
+While providing many benefits, the limitation of zk-Oracle is the excessive time required for zk-proof generation. To mitigate this bottleneck, FormAI utilizes state of the art techniques to speed up zk-based proof generation. FormAI's zk-oracle system incorporates horizontal batching and vertical batching of input datasets. Horizontal batching is implemented to split the input dataset, or workload, into smaller batches so that each zk-proof generation can be performed sequentially. Vertical batching is used to split the algorithm program into several modules whose outcomes are then recombined. 
+
+## Horizontal Batching
+
+- **Dataset Splitting:** The entire input dataset is divided into smaller batches. Each batch contains a subset of the total data.
+
+- **Sequential Processing:** The algorithm processes each batch one at a time. The processing of each batch is independent of the others, meaning that the outcome of the computation for one batch does not affect the outcome for another.
+
+- **Independent Computation:** Since each batch is processed independently, the algorithm does not need to hold the entire dataset in memory. This reduces memory usage and speeds up processing for large datasets.
+
+## Vertical Batching
+
+- **Algorithm Decomposition:** The complete algorithm program is divided into multiple smaller modules. Each module is responsible for a particular computation task within the algorithm.
+
+- **Sequential Execution:** Modules are executed one after the other in a sequence that respects the logical flow of the original algorithm. The correct outcome of the algorithm is ensured by maintaining this sequence.
+
+- **Functional Modules:** To enhance interpretability and functionality, each batch is designed to perform a specific, standalone part of the algorithm. This makes the outcome of each batch clear and understandable.
+
+## Example Workflow
+1. **Dataset:** Dataset to be classified and processed.
+2. **Resources:** 4 nodes available for parallel processing.
+3. **Horizontal Batching:** Divide the dataset, split the dataset into subsets. Each subset will be processed by a different machine.
+4. **Vertical Batching within Each Machine:**
+- **Batch Size:** On each machine, further divide the subset of data into smaller batches.
+- **Process Batches Sequentially or in Parallel:** Each machine processes its batches sequentially or in parallel, depending on available resources and the task.
+
+FormAI is designed to continuously incorporate the state of the art in privacy and security techniques. The network's zk-oracle system is designed to incorporate both **zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Argument of Knowledge)** and **zk-STARKs (Zero-Knowledge Scalable Transparent Argument of Knowledge)** based on the intended use case. Users and developers can utilize both techniques, **zk-SNARKs** for quicker verifications given their smaller proof sizes, and **zk-STARKS** for less time sensitive computations. 
